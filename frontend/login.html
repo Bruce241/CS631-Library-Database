@@ -1,0 +1,47 @@
+<html>
+
+	<head>
+		<title>Login page</title>
+	</head>
+ 
+	<body>
+		<h1>Login</h1>
+    <form name="form" method="post" action="../backend/admin_login.php">
+      <label for="Username:">Admin Username:</label>
+      <input type="text" id="username" name = "username">
+    <br>
+      <label for="password">Admin Password:</label>
+      <input type="password" id = "password" name = "password">
+        
+      <input type="submit" value="Admin Login">
+    </form>
+  <br>
+    <form name="form" method="post" action="../backend/reader_login.php">
+      <label for="Username:">Card Number:</label>
+      <input type="text" id="number" name = "number">        
+      <input type="submit" value="Reader Login">
+    </form>   
+	</body>
+</html>
+
+<script>
+    function getParameterByName(name) {
+        var url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    var error = getParameterByName("error");
+    if (error) {
+        if (error === "invalid") {
+            alert("Invalid credentials");
+        } else {
+            alert("Unknown error: " + error);
+        }
+    }
+</script>
+
