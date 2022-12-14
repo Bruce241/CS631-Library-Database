@@ -1,8 +1,4 @@
-<?php session_start(); ?>
-
 <form action="../backend/add_reader.php" method="post">
-  <label for="reader_id">Enter reader ID:</label><br>
-  <input type="text" id="reader_id" name="reader_id"><br>
   <label for="reader_type">Enter reader type:</label><br>
   <input type="text" id="reader_type" name="reader_type"><br>
   <label for="reader_name">Enter reader name:</label><br>
@@ -12,5 +8,20 @@
   <label for="phone_no">Enter reader phone number:</label><br>
   <input type="text" id="phone_no" name="phone_no"><br>
   <input type="submit" value="Add reader"><br><br>
-  <a href="admin.php">Back</a>
 </form>
+
+<?php
+	
+	session_start();
+	
+	if (isset($_SESSION['reader'])) {
+		$reader = $_SESSION['reader'];
+
+		
+		echo $reader; echo '<br><br>';
+		
+		unset($_SESSION['reader']);
+	}
+?>
+
+<a href="admin.php">Back</a>
