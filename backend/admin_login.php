@@ -12,6 +12,6 @@
 		$_SESSION["admin"] = "true";
 		header("Location: ../frontend/admin.php");
 	} else {
-		header("Location: login.html?error=invalid");
+		header("Location: ../frontend/login.html?error=invalid");
 	}
 ?>

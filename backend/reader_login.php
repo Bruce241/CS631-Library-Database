@@ -13,6 +13,7 @@
 	else {
 		session_start();
 		$_SESSION["name"] = $result[0]["RName"];
+		$_SESSION["RId"] = $result[0]["RId"];
 		header("Location: ../frontend/reader.php");
 	}
 ?>
